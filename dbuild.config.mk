@@ -7,7 +7,8 @@ ARCH	?= -march=armv7-a -mtune=cortex-a7 -mfloat-abi=hard
 endif
 
 AFLAGS ?= $(ARCH) -DRASPPI=$(RASPPI)
-CFLAGS += $(ARCH) -g -std=gnu99 -Wno-psabi -fsigned-char -DRASPPI=$(RASPPI) -nostdlib -Wno-implicit -mfloat-abi=softfp 
+#CFLAGS += $(ARCH) -g -std=gnu99 -Wno-psabi -fsigned-char -DRASPPI=$(RASPPI) -nostdlib -Wno-implicit -mfloat-abi=softfp 
+CFLAGS += $(ARCH) -g -std=gnu99 -Wno-psabi -fsigned-char -DRASPPI=$(RASPPI) -nostdlib -Wno-implicit -mfloat-abi=hard
 ## CFLAGS += -finstrument-functions
 CFLAGS += -mno-unaligned-access
 CFLAGS += -I $(BASE)FreeRTOS/Source/portable/GCC/RaspberryPi/
@@ -16,4 +17,4 @@ CFLAGS += -I $(BASE)Drivers/
 CFLAGS += -I $(BASE)Drivers/lan9514/include/
 CFLAGS += -I $(BASE)Drivers/FreeRTOS-Plus-TCP/include/
 
-TOOLCHAIN=arm-none-eabi-
+TOOLCHAIN=armv7a-hardfloat-linux-gnueabi-
