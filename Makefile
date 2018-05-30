@@ -27,7 +27,9 @@ kernel.syms: kernel.elf
 	$(Q)$(PRETTY) SYMS $(MODULE_NAME) $@
 	$(Q)$(OBJDUMP) -t kernel.elf > $@
 
-kernel.elf: LDFLAGS += -L "/usr/lib/gcc/armv7a-hardfloat-linux-gnueabi/7.3.0" -lgcc
-kernel.elf: LDFLAGS += -L "/usr/armv7a-hardfloat-linux-gnueabi/usr/lib" -lc
+#kernel.elf: LDFLAGS += -L "/usr/lib/gcc/armv7a-hardfloat-linux-gnueabi/7.3.0" -lgcc
+#kernel.elf: LDFLAGS += -L "/usr/armv7a-hardfloat-linux-gnueabi/usr/lib" -lc
+kernel.elf: LDFLAGS += -L "/usr/lib/gcc/arm-softfloat-linux-gnueabi/8.1.0" -lgcc
+kernel.elf: LDFLAGS += -L "/usr/arm-softfloat-linux-gnueabi/usr/lib" -lc
 kernel.elf: $(OBJECTS)
 	$(Q)$(LD) $(OBJECTS) -Map kernel.map -o $@ -T $(LINKER_SCRIPT) $(LDFLAGS)
