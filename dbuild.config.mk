@@ -19,4 +19,5 @@ CFLAGS += -I $(BASE)Drivers/lan9514/include/
 CFLAGS += -I $(BASE)Drivers/FreeRTOS-Plus-TCP/include/
 
 #TOOLCHAIN=armv7a-hardfloat-linux-gnueabi-
-TOOLCHAIN=arm-softfloat-linux-gnueabi-
+#TOOLCHAIN=arm-softfloat-linux-gnueabi-
+TOOLCHAIN=armv7a-softfloat-linux-gnueabi-
