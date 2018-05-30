@@ -1,9 +1,10 @@
 ## Added hard and softfloat gentoo armv7 toolchain for qemu tests
+```
 crossdev --target armv7a-softfloat-linux-gnueabi  --stable  --gcc 7.3.0-r3 --libc 2.26-r6 --kernel 4.16.12 -oO /usr/portage
 make clean; make
 qemu-system-arm -M raspi2 -cpu cortex-a7 -m 256 -kernel kernel.elf -dtb ./dtb/bcm2709-rpi-2-b.dtb  -serial stdio
-
-# FreeRTOS Ported to Raspberry Pi 2B
+```
+## FreeRTOS Ported to Raspberry Pi 2B
 
 Fork from James Walmsley's RPi 1 FreeRTOS build, modified for framebuffer support and the RPi2B.
 https://github.com/jameswalmsley/RaspberryPi-FreeRTOS
